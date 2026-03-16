@@ -4,8 +4,4 @@
 
 [resource]
 script = ExtResource("1_5h4d8")
-character_name = null
-writing_skill = null
-production_skill = null
-management_skill = null
 metadata/_custom_type_script = "uid://rtr722fj57b6"
