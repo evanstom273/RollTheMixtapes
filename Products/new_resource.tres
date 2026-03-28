@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("2_x08dc")
+product_type = 2
 metadata/_custom_type_script = "uid://e13wuqth0xtr"
