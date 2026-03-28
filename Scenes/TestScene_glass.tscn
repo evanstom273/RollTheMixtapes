@@ -10,10 +10,10 @@ seamless = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.1, 0.12, 0.15, 0.6)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.3, 1, 0.33, 0.25)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
@@ -133,6 +133,52 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer" unique_id=425070899]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=227404213]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=2127051285]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=165163940]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Label2" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=459016081]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "roll the mixtapes"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=1253472782]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Label3" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=1220293087]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Date: Year 1 / Month 1 / Day 1"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer3/MarginContainer/HBoxContainer" unique_id=1667611013]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
 [node name="HSeparator" type="HSeparator" parent="MarginContainer3/VBoxContainer" unique_id=1897961511]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
@@ -250,6 +296,20 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
 text = "WORLDWIDE PRODUCTS"
 
 [node name="HSeparator7" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1580932780]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Settings" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=440268163]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "SETTINGS"
+
+[node name="HSeparator8" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=818166939]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
