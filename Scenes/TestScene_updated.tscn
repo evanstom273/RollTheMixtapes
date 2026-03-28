@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://gsx3ev6mn3ov"]
 
+[ext_resource type="Script" uid="uid://bnisnamplhlrs" path="res://Scripts/Data/MainScript.gd" id="1_mrclt"]
+[ext_resource type="Resource" uid="uid://wrrpbs06r46w" path="res://Workers/new_resource.tres" id="2_s44ev"]
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_0r02p"]
 noise_type = 3
 frequency = 0.0085
@@ -8,20 +11,6 @@ frequency = 0.0085
 noise = SubResource("FastNoiseLite_0r02p")
 seamless = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r02p"]
-bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 4
-border_color = Color(0.3019608, 1, 0.33333334, 0.627451)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.3)
-shadow_size = 4
-shadow_offset = Vector2(0, 2)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
 border_width_left = 4
@@ -37,33 +26,34 @@ corner_radius_bottom_left = 8
 shadow_color = Color(0, 0, 0, 0.4)
 shadow_size = 12
 shadow_offset = Vector2(0, 6)
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
-bg_color = Color(0.25, 0.25, 0.25, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 4
-border_color = Color(0.4, 1, 0.4, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrclt"]
+bg_color = Color(1, 1, 1, 0.03)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-shadow_color = Color(0.3019608, 1, 0.33333334, 0.15)
-shadow_size = 6
-shadow_offset = Vector2(0, 2)
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
-bg_color = Color(0.1, 0.1, 0.1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s44ev"]
+bg_color = Color(0, 0, 0, 0.2)
+border_width_left = 4
 border_color = Color(0.2, 0.8, 0.2, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0)
-shadow_size = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aoym"]
+bg_color = Color(1, 1, 1, 0.1)
+border_width_left = 4
+border_color = Color(0.3, 1, 0.33, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.1)
+shadow_size = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cal_normal"]
 bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
 border_width_left = 1
@@ -78,6 +68,20 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0, 0, 0, 0.2)
 shadow_size = 2
 shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cal_pressed"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.8, 0.2, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cal_hover"]
 bg_color = Color(0.25, 0.25, 0.25, 1)
 border_width_left = 1
@@ -92,19 +96,7 @@ corner_radius_bottom_left = 4
 shadow_color = Color(0.3019608, 1, 0.33333334, 0.1)
 shadow_size = 4
 shadow_offset = Vector2(0, 1)
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cal_pressed"]
-bg_color = Color(0.1, 0.1, 0.1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.2, 0.8, 0.2, 0.8)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-shadow_color = Color(0, 0, 0, 0)
-shadow_size = 0
+
 [node name="Control" type="Control" unique_id=925716496]
 layout_mode = 3
 anchors_preset = 15
@@ -112,6 +104,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mrclt")
+selected_character = ExtResource("2_s44ev")
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=2110070664]
 layout_mode = 1
@@ -159,128 +153,128 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 17.0
 
-[node name="Navigation" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=843549173]
+[node name="Navigation" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=2046411982]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="MarginContainer" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation" unique_id=923528407]
+[node name="MarginContainer2" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation" unique_id=42503531]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer" unique_id=1714083445]
-layout_mode = 0
-offset_right = 280.0
-offset_bottom = 888.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2" unique_id=1090798342]
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer" unique_id=745438066]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer" unique_id=1389895444]
 layout_mode = 2
 
-[node name="HSeparator6" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1688015738]
+[node name="HSeparator6" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1948700825]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1521930330]
+[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1399938117]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrclt")
 text = "Navigation"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=607969616]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=477545143]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Home" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=2125410054]
+[node name="Home" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1661921528]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrclt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s44ev")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6aoym")
 text = "HOME"
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1208627717]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=785075231]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Talent" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=951909106]
+[node name="Talent" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1670291164]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrclt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s44ev")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6aoym")
 text = "TALENT"
 
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1907529175]
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=136693075]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="Companies" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1755416350]
+[node name="Companies" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=811883874]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrclt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s44ev")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6aoym")
 text = "COMPANIES"
 
-[node name="HSeparator4" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1278285998]
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=118139343]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="NewProduct" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1281085716]
+[node name="NewProduct" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1228594938]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrclt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s44ev")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6aoym")
 text = "MY PRODUCTS"
 
-[node name="HSeparator5" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=432315077]
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=468038372]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="AllProducts" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1344053493]
+[node name="AllProducts" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=474236920]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrclt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s44ev")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6aoym")
 text = "WORLDWIDE PRODUCTS"
 
-[node name="HSeparator7" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1580932780]
+[node name="HSeparator7" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=747509324]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Settings" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=1420867799]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrclt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s44ev")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6aoym")
+text = "SETTINGS"
+
+[node name="HSeparator8" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer2/MarginContainer/VBoxContainer" unique_id=464024794]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -290,15 +284,26 @@ theme_override_constants/separation = 20
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Main" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=2139510001]
+[node name="Main" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=2029319390]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 size_flags_stretch_ratio = 10.0
 
 [node name="MarginContainer" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Main" unique_id=1844233099]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 16.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Main" unique_id=1201376346]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MarginContainer2" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Main" unique_id=1356966515]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="VSeparator2" type="VSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=2029003866]
@@ -316,6 +321,48 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo" unique_id=637667173]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer" unique_id=990457257]
+layout_mode = 2
+
+[node name="PlayerName" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer/VBoxContainer" unique_id=502204430]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Name:"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer/VBoxContainer" unique_id=1094785450]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PlayerAge" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer/VBoxContainer" unique_id=532478797]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Age: "
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer/VBoxContainer" unique_id=1119491504]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PlayerBirthplace" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer/VBoxContainer" unique_id=1022585785]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Birthplace: "
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer/VBoxContainer" unique_id=1157935386]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="PlayerRole" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/PlayerInfo/MarginContainer/VBoxContainer" unique_id=1362847682]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Job: "
+
 [node name="Calendar" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player" unique_id=1988514481]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -323,9 +370,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar" unique_id=455643667]
-layout_mode = 0
-offset_right = 480.0
-offset_bottom = 435.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer" unique_id=333949966]
 layout_mode = 2
@@ -348,306 +393,250 @@ columns = 7
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day2" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=85317309]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day3" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=505726078]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day4" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=390579076]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day5" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=487958711]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day6" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=942719486]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day7" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=421494039]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day8" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1928394134]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day9" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=146920686]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day10" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=254453023]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day11" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=916966937]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day12" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1053594876]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day13" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1523776661]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day14" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1253190878]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day15" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1489191593]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day16" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=471155723]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day17" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=710029183]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day18" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1972904753]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day19" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1964832996]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day20" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=940697966]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day21" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=712087277]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day22" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=595483908]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day23" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1924643804]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day24" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1786745477]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day25" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=870468963]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day26" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=319894319]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day27" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1254431759]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
 
 [node name="Day28" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1867170245]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
 theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
 text = "1"
