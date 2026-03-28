@@ -10,13 +10,13 @@ enum CountryAsia { JAPAN, CHINA, INDIA, SOUTH_KOREA }
 enum CountryAfrica { NIGERIA, SOUTH_AFRICA, GHANA }
 enum CountryOceania { NEW_ZEALAND, AUSTRALIA, SAMOA }
 
-enum CompanyType { LABEL, STUDIO }
+enum CompanyType { NONE, LABEL, STUDIO }
 
 @export_group("Company Info")
 @export var company_name = str("")
-@export var birthplace: Region = Region.NORTH_AMERICA:
+@export var location: Region = Region.NORTH_AMERICA:
     set(value):
-        birthplace = value
+        location = value
         notify_property_list_changed()
 @export var country_north_america: CountryNorthAmerica = CountryNorthAmerica.USA
 @export var country_latin_america: CountryLatinAmerica = CountryLatinAmerica.BRAZIL
@@ -24,6 +24,11 @@ enum CompanyType { LABEL, STUDIO }
 @export var country_asia: CountryAsia = CountryAsia.JAPAN
 @export var country_africa: CountryAfrica = CountryAfrica.NIGERIA
 @export var country_oceania: CountryOceania = CountryOceania.NEW_ZEALAND
+@export var company_type: CompanyType = CompanyType.NONE:
+     set(value):
+        company_type = value
+        notify_property_list_changed()
+@export var preferred_genres: Array[ProductResource.SongGenre]
 
 @export_group("Financial Info & Contracts")
 @export_range(0, 1000000, 1000) var bank_balance: int = 0
@@ -49,16 +54,18 @@ enum CompanyType { LABEL, STUDIO }
         ) / 6.0)
 
 func _validate_property(property: Dictionary) -> void:
-    # Hide country enums that don't match the current birthplace.
-    if property.name == "country_north_america" and birthplace != Region.NORTH_AMERICA:
+    # Hide country enums that don't match the current location.
+    if property.name == "country_north_america" and location != Region.NORTH_AMERICA:
         property.usage = PROPERTY_USAGE_NO_EDITOR
-    elif property.name == "country_latin_america" and birthplace != Region.LATIN_AMERICA:
+    elif property.name == "country_latin_america" and location != Region.LATIN_AMERICA:
         property.usage = PROPERTY_USAGE_NO_EDITOR
-    elif property.name == "country_europe" and birthplace != Region.EUROPE:
+    elif property.name == "country_europe" and location != Region.EUROPE:
         property.usage = PROPERTY_USAGE_NO_EDITOR
-    elif property.name == "country_asia" and birthplace != Region.ASIA:
+    elif property.name == "country_asia" and location != Region.ASIA:
         property.usage = PROPERTY_USAGE_NO_EDITOR
-    elif property.name == "country_africa" and birthplace != Region.AFRICA:
+    elif property.name == "country_africa" and location != Region.AFRICA:
         property.usage = PROPERTY_USAGE_NO_EDITOR
-    elif property.name == "country_oceania" and birthplace != Region.OCEANIA:
+    elif property.name == "country_oceania" and location != Region.OCEANIA:
+        property.usage = PROPERTY_USAGE_NO_EDITOR
+    elif property.name == "preferred_genres" and company_type != CompanyType.LABEL:
         property.usage = PROPERTY_USAGE_NO_EDITOR
