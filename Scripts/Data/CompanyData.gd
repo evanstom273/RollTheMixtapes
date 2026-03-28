@@ -29,6 +29,7 @@ enum CompanyType { NONE, LABEL, STUDIO }
         company_type = value
         notify_property_list_changed()
 @export var preferred_genres: Array[ProductResource.SongGenre]
+@export_range(1, 10) var studio_quality: int = 0
 
 @export_group("Financial Info & Contracts")
 @export_range(0, 1000000, 1000) var bank_balance: int = 0
@@ -68,4 +69,10 @@ func _validate_property(property: Dictionary) -> void:
     elif property.name == "country_oceania" and location != Region.OCEANIA:
         property.usage = PROPERTY_USAGE_NO_EDITOR
     elif property.name == "preferred_genres" and company_type != CompanyType.LABEL:
+        property.usage = PROPERTY_USAGE_NO_EDITOR
+    elif property.name == "studio_quality" and company_type != CompanyType.STUDIO:
+        property.usage = PROPERTY_USAGE_NO_EDITOR
+    elif property.name == "signed_artists" and company_type != CompanyType.LABEL:
+        property.usage = PROPERTY_USAGE_NO_EDITOR
+    elif property.name == "signed_bands" and company_type != CompanyType.LABEL:
         property.usage = PROPERTY_USAGE_NO_EDITOR
