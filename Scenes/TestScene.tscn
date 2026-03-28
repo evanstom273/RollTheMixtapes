@@ -1,4 +1,96 @@
-[gd_scene format=3 uid="uid://b15f6ag83m727"]
+[gd_scene format=3 uid="uid://crbp4mv0dokwd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0r02p"]
+noise_type = 3
+frequency = 0.0085
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b5ayd"]
+noise = SubResource("FastNoiseLite_0r02p")
+seamless = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r02p"]
+bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3019608, 1, 0.33333334, 0.627451)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3019608, 1, 0.33333334, 0.627451)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.25, 0.25, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 1, 0.4, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.8, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cal_normal"]
+bg_color = Color(0.17254902, 0.17254902, 0.17254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3019608, 1, 0.33333334, 0.3)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cal_hover"]
+bg_color = Color(0.25, 0.25, 0.25, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.4, 1, 0.4, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cal_pressed"]
+bg_color = Color(0.1, 0.1, 0.1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.2, 0.8, 0.2, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Control" type="Control" unique_id=925716496]
 layout_mode = 3
@@ -7,3 +99,472 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=2110070664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2" unique_id=1392220006]
+modulate = Color(0.17254902, 0.17254902, 0.17254902, 1)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_b5ayd")
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=1153066375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3" unique_id=1529751964]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer3/VBoxContainer" unique_id=299385295]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer3" unique_id=1703293212]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer3/VBoxContainer" unique_id=1897961511]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer3/VBoxContainer" unique_id=1474846156]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 17.0
+
+[node name="Navigation" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=843549173]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="MarginContainer" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation" unique_id=923528407]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer" unique_id=1714083445]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 888.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer" unique_id=745438066]
+layout_mode = 2
+
+[node name="HSeparator6" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1688015738]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1521930330]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
+text = "Navigation"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=607969616]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Home" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=2125410054]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
+text = "HOME"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1208627717]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Talent" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=951909106]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
+text = "TALENT"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1907529175]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Companies" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1755416350]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
+text = "COMPANIES"
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1278285998]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="NewProduct" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1281085716]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
+text = "MY PRODUCTS"
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=432315077]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="AllProducts" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1344053493]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r02p")
+text = "WORLDWIDE PRODUCTS"
+
+[node name="HSeparator7" type="HSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Navigation/MarginContainer/MarginContainer/VBoxContainer" unique_id=1580932780]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=1695705847]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Main" type="HBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=2139510001]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="MarginContainer" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Main" unique_id=1844233099]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=2029003866]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Player" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2" unique_id=969673263]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="PlayerInfo" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player" unique_id=1608276174]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Calendar" type="PanelContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player" unique_id=1988514481]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar" unique_id=455643667]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 435.0
+
+[node name="Label" type="Label" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer" unique_id=333949966]
+layout_mode = 2
+text = "calendar"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer" unique_id=45080615]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer" unique_id=1103587086]
+layout_mode = 2
+columns = 7
+
+[node name="Day1" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=440813568]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day2" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=85317309]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day3" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=505726078]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day4" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=390579076]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day5" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=487958711]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day6" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=942719486]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day7" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=421494039]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day8" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1928394134]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day9" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=146920686]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day10" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=254453023]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day11" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=916966937]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day12" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1053594876]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day13" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1523776661]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day14" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1253190878]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day15" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1489191593]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day16" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=471155723]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day17" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=710029183]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day18" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1972904753]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day19" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1964832996]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day20" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=940697966]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day21" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=712087277]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day22" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=595483908]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day23" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1924643804]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day24" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1786745477]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day25" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=870468963]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day26" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=319894319]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day27" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1254431759]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
+
+[node name="Day28" type="Button" parent="MarginContainer3/VBoxContainer/HBoxContainer2/Player/Calendar/VBoxContainer/MarginContainer/GridContainer" unique_id=1867170245]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_cal_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cal_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cal_normal")
+text = "1"
