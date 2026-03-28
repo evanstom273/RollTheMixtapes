@@ -3,9 +3,9 @@ extends Resource
 class_name CharacterResource
 
 
-enum Region { NORTH_AMERICA, LATIN_AMERICA, EUROPE, ASIA, AFRICA, OCEANIA }
+enum Region { NORTH_AMERICA, SOUTH_AMERICA, EUROPE, ASIA, AFRICA, OCEANIA }
 enum CountryNorthAmerica { USA, CANADA, MEXICO }
-enum CountryLatinAmerica { BRAZIL, ARGENTINA, CHILE }
+enum CountrySouthAmerica { BRAZIL, ARGENTINA, CHILE }
 enum CountryEurope { ENGLAND, SCOTLAND, FRANCE, GERMANY, IRELAND, ITALY, SPAIN, WALES }
 enum CountryAsia { JAPAN, CHINA, INDIA, SOUTH_KOREA }
 enum CountryAfrica { NIGERIA, SOUTH_AFRICA, GHANA }
@@ -36,7 +36,7 @@ var _is_normalizing_specialities := false
         notify_property_list_changed()
 
 @export var country_north_america: CountryNorthAmerica = CountryNorthAmerica.USA
-@export var country_latin_america: CountryLatinAmerica = CountryLatinAmerica.BRAZIL
+@export var country_south_america: CountrySouthAmerica = CountrySouthAmerica.BRAZIL
 @export var country_europe: CountryEurope = CountryEurope.ENGLAND
 @export var country_asia: CountryAsia = CountryAsia.JAPAN
 @export var country_africa: CountryAfrica = CountryAfrica.NIGERIA
@@ -107,7 +107,7 @@ func _validate_property(property: Dictionary) -> void:
     # Hide country enums that don't match the current birthplace.
     if property.name == "country_north_america" and birthplace != Region.NORTH_AMERICA:
         property.usage = PROPERTY_USAGE_NO_EDITOR
-    elif property.name == "country_latin_america" and birthplace != Region.LATIN_AMERICA:
+    elif property.name == "country_south_america" and birthplace != Region.SOUTH_AMERICA:
         property.usage = PROPERTY_USAGE_NO_EDITOR
     elif property.name == "country_europe" and birthplace != Region.EUROPE:
         property.usage = PROPERTY_USAGE_NO_EDITOR
@@ -167,8 +167,8 @@ func get_country_name() -> String:
     match birthplace:
         Region.NORTH_AMERICA:
             return _enum_to_display_name(CountryNorthAmerica.keys()[country_north_america])
-        Region.LATIN_AMERICA:
-            return _enum_to_display_name(CountryLatinAmerica.keys()[country_latin_america])
+        Region.SOUTH_AMERICA:
+            return _enum_to_display_name(CountrySouthAmerica.keys()[country_south_america])
         Region.EUROPE:
             return _enum_to_display_name(CountryEurope.keys()[country_europe])
         Region.ASIA:
